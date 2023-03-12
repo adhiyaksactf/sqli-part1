@@ -20,10 +20,6 @@ services:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_USER: sqli
       MYSQL_PASSWORD: sqli
-      MYSQL_DATABASE: sqli-login
-      SERVICE_TAGS: dev
-      SERVICE_NAME: mysql
-    ports:
-      - "3306:3306"
+      MYSQL_DATABASE: sqli
     volumes:
       - ./db:/docker-entrypoint-initdb.d
