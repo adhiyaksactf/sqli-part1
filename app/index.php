@@ -1,6 +1,7 @@
 <?php
 session_start();
 include('config.php');
+ob_start();
 ?>
 
 <html lang="en">
@@ -26,7 +27,7 @@ include('config.php');
                     <i class="fa fa-key" aria-hidden="true"></i>
                 </div>
                 <div class="col-lg-12 login-title">
-                    ADMIN PANEL AA
+                    ADMIN PANEL
                 </div>
                 <?php
                 if ($_SERVER['REQUEST_METHOD'] == "POST") {
