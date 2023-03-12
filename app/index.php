@@ -31,7 +31,7 @@
                     $username = $_POST['username'];
                     $password = $_POST['password'];
                     $password = md5($password);
-                    $query = "debug prompt, query to server is : select id from admin where username = '$username' and password = '$password'";
+                    $query = "select id from admin where username = '$username' and password = '$password'";
                     echo $query;
                     $data = mysqli_query($conn,  $query) or die(mysqli_error($conn));
                     $ret = mysqli_fetch_array($data, MYSQLI_ASSOC);
