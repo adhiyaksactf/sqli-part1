@@ -13,7 +13,7 @@ services:
       - db
 
   db:
-    image: mysql:5.7
+    image: mariadb:latest
     container_name: sqli-part1-db
     restart: always
     environment:
