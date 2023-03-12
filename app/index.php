@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,9 +10,10 @@
     <link href="style.css" rel="stylesheet" type="text/css" media="all" />
     <title>Admin Panel</title>
 </head>
+
 <body>
-    
-<div class="container">
+
+    <div class="container">
         <div class="row">
             <div class="col-lg-3 col-md-2"></div>
             <div class="col-lg-6 col-md-8 login-box">
@@ -19,25 +21,25 @@
                     <i class="fa fa-key" aria-hidden="true"></i>
                 </div>
                 <div class="col-lg-12 login-title">
-                    ADMIN PANEL
+                    ADMIN PANEL AA
                 </div>
                 <?php
-                include('config.php');
                 session_start();
-                if($_SERVER['REQUEST_METHOD'] == "POST")
-                {
-                //Username and Password sent from Form
-                $username = $_POST['username'];
-                $password = $_POST['password'];
-                $password = md5($password);
-                $query = "select id from admin where username = '$username' and password = '$password'";
-                $data = mysqli_query($conn,  $query) or die (mysqli_error($conn));
-                $ret = mysqli_fetch_array($data, MYSQLI_ASSOC);
-                if(isset($ret) && $ret){
-                    session_start();
-                    $_SESSION['login'] = true;
+                include('config.php');
+                if ($_SERVER['REQUEST_METHOD'] == "POST") {
+                    //Username and Password sent from Form
+                    $username = $_POST['username'];
+                    $password = $_POST['password'];
+                    $password = md5($password);
+                    $query = "debug prompt, query to server is : select id from admin where username = '$username' and password = '$password'";
+                    echo $query;
+                    $data = mysqli_query($conn,  $query) or die(mysqli_error($conn));
+                    $ret = mysqli_fetch_array($data, MYSQLI_ASSOC);
+                    if (isset($ret) && $ret) {
+                        session_start();
+                        $_SESSION['login'] = true;
                         header("location: hello.php");
-                    } else{
+                    } else {
                         echo "<p> <font color=whitesmoke>Invalid Username or Password</font> </p>";
                     }
                 }
@@ -70,4 +72,5 @@
             </div>
         </div>
 </body>
+
 </html>
