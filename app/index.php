@@ -1,3 +1,8 @@
+<?php
+session_start();
+include('config.php');
+?>
+
 <html lang="en">
 
 <head>
@@ -24,8 +29,6 @@
                     ADMIN PANEL AA
                 </div>
                 <?php
-                session_start();
-                include('config.php');
                 if ($_SERVER['REQUEST_METHOD'] == "POST") {
                     //Username and Password sent from Form
                     $username = $_POST['username'];
@@ -36,7 +39,6 @@
                     $data = mysqli_query($conn,  $query) or die(mysqli_error($conn));
                     $ret = mysqli_fetch_array($data, MYSQLI_ASSOC);
                     if (isset($ret) && $ret) {
-                        session_start();
                         $_SESSION['login'] = true;
                         header("location: hello.php");
                     } else {
